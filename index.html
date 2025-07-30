@@ -159,6 +159,18 @@
         transform: scale(1) rotate(0deg);
       }
     }
+
+    /* Float up and fade out */
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(90deg);
+      }
+    }
   </style>
 </head>
 <body>
@@ -171,115 +183,115 @@
       <div class="slide active">
         <p>1. What is my favorite dessert?</p>
         <input type="text" id="answer1" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="submitAnswer()">Submit Answer</button>
+        <button class="rakhi-btn" onclick="submitAnswer()">Submit</button>
       </div>
       <!-- Slide 2: Answer 1 -->
       <div class="slide">
         <p>Correct Answer: Kheer / Choorma</p>
-        <button class="rakhi-btn" onclick="nextSlide()">Next Question</button>
+        <button class="rakhi-btn" onclick="nextSlide()">Next</button>
       </div>
 
       <!-- Slide 3: Question 2 -->
       <div class="slide">
         <p>2. Which subject did I hate in school?</p>
         <input type="text" id="answer2" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="submitAnswer()">Submit Answer</button>
+        <button class="rakhi-btn" onclick="submitAnswer()">Submit</button>
       </div>
       <!-- Slide 4: Answer 2 -->
       <div class="slide">
         <p>Correct Answer: Social Science</p>
-        <button class="rakhi-btn" onclick="nextSlide()">Next Question</button>
+        <button class="rakhi-btn" onclick="nextSlide()">Next</button>
       </div>
 
       <!-- Slide 5: Question 3 -->
       <div class="slide">
         <p>3. What’s the one movie I can watch over and over?</p>
         <input type="text" id="answer3" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="submitAnswer()">Submit Answer</button>
+        <button class="rakhi-btn" onclick="submitAnswer()">Submit</button>
       </div>
       <!-- Slide 6: Answer 3 -->
       <div class="slide">
         <p>Correct Answer: Hera Pheri / Guru / Vivah / K3G / Jannat</p>
-        <button class="rakhi-btn" onclick="nextSlide()">Next Question</button>
+        <button class="rakhi-btn" onclick="nextSlide()">Next</button>
       </div>
 
       <!-- Slide 7: Question 4 -->
       <div class="slide">
         <p>4. What did I always steal from your room as kids?</p>
         <input type="text" id="answer4" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="submitAnswer()">Submit Answer</button>
+        <button class="rakhi-btn" onclick="submitAnswer()">Submit</button>
       </div>
       <!-- Slide 8: Answer 4 -->
       <div class="slide">
         <p>Correct Answer: You know better ;)</p>
-        <button class="rakhi-btn" onclick="nextSlide()">Next Question</button>
+        <button class="rakhi-btn" onclick="nextSlide()">Next</button>
       </div>
 
       <!-- Slide 9: Question 5 -->
       <div class="slide">
         <p>5. If I could teleport anywhere right now, where would I go?</p>
         <input type="text" id="answer5" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="submitAnswer()">Submit Answer</button>
+        <button class="rakhi-btn" onclick="submitAnswer()">Submit</button>
       </div>
       <!-- Slide 10: Answer 5 -->
       <div class="slide">
         <p>Correct Answer: Home</p>
-        <button class="rakhi-btn" onclick="nextSlide()">Next Question</button>
+        <button class="rakhi-btn" onclick="nextSlide()">Next</button>
       </div>
 
       <!-- Slide 11: Question 6 -->
       <div class="slide">
         <p>6. What’s my secret talent?</p>
         <input type="text" id="answer6" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="submitAnswer()">Submit Answer</button>
+        <button class="rakhi-btn" onclick="submitAnswer()">Submit</button>
       </div>
       <!-- Slide 12: Answer 6 -->
       <div class="slide">
         <p>Correct Answer: Bata dungi to secret kaise rahega!</p>
-        <button class="rakhi-btn" onclick="nextSlide()">Next Question</button>
+        <button class="rakhi-btn" onclick="nextSlide()">Next</button>
       </div>
 
       <!-- Slide 13: Question 7 -->
       <div class="slide">
         <p>7. Who was my childhood celebrity crush?</p>
         <input type="text" id="answer7" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="submitAnswer()">Submit Answer</button>
+        <button class="rakhi-btn" onclick="submitAnswer()">Submit</button>
       </div>
       <!-- Slide 14: Answer 7 -->
       <div class="slide">
         <p>Correct Answer: Govinda</p>
-        <button class="rakhi-btn" onclick="nextSlide()">Next Question</button>
+        <button class="rakhi-btn" onclick="nextSlide()">Next</button>
       </div>
 
       <!-- Slide 15: Question 8 -->
       <div class="slide">
         <p>8. What’s one thing you do that always annoys me?</p>
         <input type="text" id="answer8" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="submitAnswer()">Submit Answer</button>
+        <button class="rakhi-btn" onclick="submitAnswer()">Submit</button>
       </div>
       <!-- Slide 16: Answer 8 -->
       <div class="slide">
         <p>Correct Answer: I don't know. You don't know.</p>
-        <button class="rakhi-btn" onclick="nextSlide()">Next Question</button>
+        <button class="rakhi-btn" onclick="nextSlide()">Next</button>
       </div>
 
       <!-- Slide 17: Question 9 -->
       <div class="slide">
         <p>9. What’s my go-to comfort food when I’m upset?</p>
         <input type="text" id="answer9" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="submitAnswer()">Submit Answer</button>
+        <button class="rakhi-btn" onclick="submitAnswer()">Submit</button>
       </div>
       <!-- Slide 18: Answer 9 -->
       <div class="slide">
         <p>Correct Answer: Poori ke sath poori</p>
-        <button class="rakhi-btn" onclick="nextSlide()">Next Question</button>
+        <button class="rakhi-btn" onclick="nextSlide()">Next</button>
       </div>
 
       <!-- Slide 19: Question 10 -->
       <div class="slide">
         <p>10. Finish the sentence: “You’re my brother, but sometimes I feel like ___.”</p>
         <input type="text" id="answer10" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="submitAnswer()">Submit Answer</button>
+        <button class="rakhi-btn" onclick="submitAnswer()">Submit</button>
       </div>
       <!-- Slide 20: Answer 10 -->
       <div class="slide">
@@ -310,11 +322,15 @@
   <!-- Container for flower animation -->
   <div id="flower-animation"></div>
 
+  <!-- Audio for flower bloom -->
+  <audio id="flower-sound" src="https://actions.google.com/sounds/v1/ambiences/flowers_blooming.ogg" preload="auto"></audio>
+
   <script>
     window.onload = function () {
       let currentSlide = 0;
       const slideElements = document.querySelectorAll(".slide");
       const flowerContainer = document.getElementById('flower-animation');
+      const flowerSound = document.getElementById('flower-sound');
 
       function createPetal(angle, delay, colorClass, x, y) {
         const petal = document.createElement('div');
@@ -326,30 +342,50 @@
         petal.style.animationDelay = delay + 'ms';
         flowerContainer.appendChild(petal);
 
-        // Remove petal after animation
+        // After bloom animation, float up and fade
         setTimeout(() => {
-          flowerContainer.removeChild(petal);
-        }, 1600);
+          petal.style.animation = 'floatUp 1500ms ease forwards';
+          petal.style.animationDelay = '0ms';
+        }, 800 + delay);
+
+        // Remove petal after full animation
+        setTimeout(() => {
+          if (flowerContainer.contains(petal)) flowerContainer.removeChild(petal);
+        }, 2500 + delay);
       }
 
-      function triggerFlowerAnimation() {
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 3;
-        const petalsCount = 5;
-        const radius = 40;
+      function createBurst(centerX, centerY) {
+        const petalsCount = 7 + Math.floor(Math.random() * 4); // 7 to 10 petals
+        const radius = 40 + Math.random() * 20;
 
         for(let i = 0; i < petalsCount; i++) {
-          const angle = (360 / petalsCount) * i;
-          const delay = i * 150;
+          const angle = (360 / petalsCount) * i + (Math.random() * 15);
+          const delay = i * 120 + Math.random() * 100;
           const colorClass = 'petal' + ((i % 5) + 1);
           const rad = angle * (Math.PI / 180);
-          const x = centerX + radius * Math.cos(rad);
-          const y = centerY + radius * Math.sin(rad);
+          const x = centerX + radius * Math.cos(rad) + (Math.random() * 20 - 10);
+          const y = centerY + radius * Math.sin(rad) + (Math.random() * 20 - 10);
           createPetal(angle, delay, colorClass, x, y);
         }
       }
 
+      function triggerFlowerAnimation() {
+        const centerX = window.innerWidth / 2 + (Math.random() * 100 - 50);
+        const centerY = window.innerHeight / 3 + (Math.random() * 50 - 25);
+        // Create multiple bursts
+        for(let i = 0; i < 3; i++) {
+          setTimeout(() => {
+            createBurst(centerX + (Math.random() * 60 - 30), centerY + (Math.random() * 40 - 20));
+          }, i * 300);
+        }
+        // Play sound softly
+        flowerSound.currentTime = 0;
+        flowerSound.volume = 0.3;
+        flowerSound.play();
+      }
+
       function submitAnswer() {
+        if(currentSlide >= slideElements.length) return;
         slideElements[currentSlide].classList.remove("active");
         currentSlide += 1; // Move to answer slide
         if (currentSlide < slideElements.length) {
@@ -359,6 +395,7 @@
       }
 
       function nextSlide() {
+        if(currentSlide >= slideElements.length) return;
         slideElements[currentSlide].classList.remove("active");
         currentSlide += 1; // Move to next question slide
         if (currentSlide < slideElements.length) {
@@ -369,11 +406,4 @@
       window.submitAnswer = submitAnswer;
       window.nextSlide = nextSlide;
 
-      window.tieRakhi = function (src) {
-        document.getElementById("hand-tie").style.display = "block";
-        document.getElementById("chosen-rakhi").src = src;
-      };
-    };
-  </script>
-</body>
-</html>
+      window.tie
