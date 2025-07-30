@@ -2,69 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>How Well Do You Know Your Sister?</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(#fff8e1, #ffe0b2);
+      background: radial-gradient(circle at center, #fff3e0, #ffe0b2);
       margin: 0;
       padding: 0;
       text-align: center;
+      position: relative;
+      overflow-x: hidden;
     }
+
     .container {
       max-width: 700px;
-      margin: 2rem auto;
-      background: #fff3e0;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 3rem auto;
+      background: #fff8dc;
+      padding: 2rem 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(255, 140, 0, 0.3);
+      border: 6px solid #ff7043; /* rakhi-like border color */
+      position: relative;
+      z-index: 2;
     }
+
     h1 {
       color: #bf360c;
+      font-family: 'Pacifico', cursive;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 2px #d84315;
     }
+
     img {
       width: 100%;
       max-height: 250px;
       object-fit: cover;
-      border-radius: 10px;
+      border-radius: 15px;
       margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(255, 111, 0, 0.4);
     }
+
     .slide {
       display: none;
     }
+
     .slide.active {
       display: block;
       animation: fadeIn 0.5s ease-in-out;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
     button {
-      background-color: #ff6f00;
+      background-color: #f4511e;
       color: white;
       border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 8px;
+      padding: 0.85rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 10px;
       cursor: pointer;
-      margin-top: 1rem;
+      margin-top: 1.3rem;
+      box-shadow: 0 4px 10px rgba(244, 81, 30, 0.6);
+      transition: background-color 0.3s ease;
     }
+
     button:hover {
-      background-color: #e65100;
+      background-color: #d84315;
     }
+
     .footer {
       margin-top: 2rem;
       font-style: italic;
       color: #6d4c41;
     }
+
+    /* Confetti container */
+    .confetti {
+      pointer-events: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 1;
+      overflow: visible;
+    }
   </style>
 </head>
 <body>
+  <div class="confetti" id="confetti"></div>
+
   <div class="container">
     <h1>How Well Do You Know Your Sister?</h1>
-    <img src="https://images.unsplash.com/photo-1597157631266-60d8db00f8f5" alt="Rakhi celebration" />
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Rakhi celebration" />
 
     <div id="slides">
       <div class="slide active">
@@ -197,6 +233,11 @@
       slides[currentSlide + 1].classList.add('active');
       currentSlide += 1;
     }
-  </script>
-</body>
-</html>
+
+    // Simple confetti effect on page load
+    function createConfettiPiece() {
+      const confetti = document.createElement('div');
+      confetti.style.position = 'absolute';
+      confetti.style.width = confetti.style.height = Math.random() * 8 + 4 + 'px';
+      confetti.style.backgroundColor = `hsl(${Math.random() * 50 + 20}, 100%, 60%)`;
+      confetti.style.top = Math.random()
