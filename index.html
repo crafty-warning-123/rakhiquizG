@@ -406,4 +406,11 @@
       window.submitAnswer = submitAnswer;
       window.nextSlide = nextSlide;
 
-      window.tie
+      window.tieRakhi = function (src) {
+        document.getElementById("hand-tie").style.display = "block";
+        document.getElementById("chosen-rakhi").src = src;
+      };
+    };
+  </script>
+</body>
+</html>
