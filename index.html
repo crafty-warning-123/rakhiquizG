@@ -5,108 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>How Well Do You Know Your Sister?</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: radial-gradient(circle at center, #fff3e0, #ffe0b2);
+      background: linear-gradient(135deg, #fff8e1, #ffe0b2);
       margin: 0;
       padding: 0;
       text-align: center;
-      position: relative;
       overflow-x: hidden;
+      color: #5d4037;
     }
-
     .container {
       max-width: 700px;
-      margin: 3rem auto;
-      background: #fff8dc;
-      padding: 2rem 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(255, 140, 0, 0.3);
-      border: 6px solid #ff7043; /* rakhi-like border color */
+      margin: 2rem auto;
+      background: #fff3e0;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       position: relative;
-      z-index: 2;
+      z-index: 10;
     }
-
     h1 {
       color: #bf360c;
-      font-family: 'Pacifico', cursive;
-      font-weight: 700;
-      letter-spacing: 1.2px;
       margin-bottom: 1rem;
-      text-shadow: 1px 1px 2px #d84315;
     }
-
     img {
       width: 100%;
       max-height: 250px;
       object-fit: cover;
-      border-radius: 15px;
+      border-radius: 10px;
       margin-bottom: 1.5rem;
-      box-shadow: 0 4px 12px rgba(255, 111, 0, 0.4);
+      user-select: none;
+      pointer-events: none;
     }
-
     .slide {
       display: none;
-    }
-
-    .slide.active {
-      display: block;
       animation: fadeIn 0.5s ease-in-out;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .slide.active {
+      display: block;
     }
-
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    input[type="text"] {
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #ffb74d;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 350px;
+      margin: 0.5rem 0 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus {
+      border-color: #ff6f00;
+      box-shadow: 0 0 5px #ff6f00;
+    }
     button {
-      background-color: #f4511e;
+      background-color: #ff6f00;
       color: white;
       border: none;
-      padding: 0.85rem 2rem;
+      padding: 0.75rem 1.8rem;
       font-size: 1.1rem;
-      border-radius: 10px;
+      border-radius: 8px;
       cursor: pointer;
-      margin-top: 1.3rem;
-      box-shadow: 0 4px 10px rgba(244, 81, 30, 0.6);
+      margin-top: 0.8rem;
       transition: background-color 0.3s ease;
+      user-select: none;
     }
-
     button:hover {
-      background-color: #d84315;
+      background-color: #e65100;
     }
-
     .footer {
       margin-top: 2rem;
       font-style: italic;
       color: #6d4c41;
     }
 
-    /* Confetti container */
-    .confetti {
-      pointer-events: none;
+    /* Confetti canvas styles */
+    #confetti-canvas {
       position: fixed;
       top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      z-index: 1;
-      overflow: visible;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="confetti" id="confetti"></div>
+  <canvas id="confetti-canvas"></canvas>
 
   <div class="container">
     <h1>How Well Do You Know Your Sister?</h1>
-    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Rakhi celebration" />
+    <img src="https://images.unsplash.com/photo-1597157631266-60d8db00f8f5?auto=format&fit=crop&w=700&q=80" alt="Rakhi celebration" />
 
     <div id="slides">
       <div class="slide active">
         <p>1. What is my favorite dessert?</p>
         <input type="text" id="answer1" placeholder="Type your answer..." />
-        <button onclick="showAnswer(0, 'Kheer / Choorma')">Next</button>
+        <button onclick="nextSlide()">Next</button>
       </div>
 
       <div class="slide">
@@ -117,7 +118,7 @@
       <div class="slide">
         <p>2. Which subject did I hate in school?</p>
         <input type="text" id="answer2" placeholder="Type your answer..." />
-        <button onclick="showAnswer(2, 'Social Science')">Next</button>
+        <button onclick="nextSlide()">Next</button>
       </div>
 
       <div class="slide">
@@ -128,7 +129,7 @@
       <div class="slide">
         <p>3. What’s the one movie I can watch over and over?</p>
         <input type="text" id="answer3" placeholder="Type your answer..." />
-        <button onclick="showAnswer(4, 'Hera Pheri / Guru / Vivah / K3G / Jannat')">Next</button>
+        <button onclick="nextSlide()">Next</button>
       </div>
 
       <div class="slide">
@@ -139,7 +140,7 @@
       <div class="slide">
         <p>4. What did I always steal from your room as kids?</p>
         <input type="text" id="answer4" placeholder="Type your answer..." />
-        <button onclick="showAnswer(6, 'You know better ;)')">Next</button>
+        <button onclick="nextSlide()">Next</button>
       </div>
 
       <div class="slide">
@@ -150,7 +151,7 @@
       <div class="slide">
         <p>5. If I could teleport anywhere right now, where would I go?</p>
         <input type="text" id="answer5" placeholder="Type your answer..." />
-        <button onclick="showAnswer(8, 'Home')">Next</button>
+        <button onclick="nextSlide()">Next</button>
       </div>
 
       <div class="slide">
@@ -161,7 +162,7 @@
       <div class="slide">
         <p>6. What’s my secret talent?</p>
         <input type="text" id="answer6" placeholder="Type your answer..." />
-        <button onclick="showAnswer(10, 'Bata dungi to secret kaise rahega!')">Next</button>
+        <button onclick="nextSlide()">Next</button>
       </div>
 
       <div class="slide">
@@ -172,7 +173,7 @@
       <div class="slide">
         <p>7. Who was my childhood celebrity crush?</p>
         <input type="text" id="answer7" placeholder="Type your answer..." />
-        <button onclick="showAnswer(12, 'Govinda')">Next</button>
+        <button onclick="nextSlide()">Next</button>
       </div>
 
       <div class="slide">
@@ -183,7 +184,7 @@
       <div class="slide">
         <p>8. What’s one thing you do that always annoys me?</p>
         <input type="text" id="answer8" placeholder="Type your answer..." />
-        <button onclick="showAnswer(14, 'I don\'t know. You don\'t know.')">Next</button>
+        <button onclick="nextSlide()">Next</button>
       </div>
 
       <div class="slide">
@@ -194,7 +195,7 @@
       <div class="slide">
         <p>9. What’s my go-to comfort food when I’m upset?</p>
         <input type="text" id="answer9" placeholder="Type your answer..." />
-        <button onclick="showAnswer(16, 'Poori ke sath poori')">Next</button>
+        <button onclick="nextSlide()">Next</button>
       </div>
 
       <div class="slide">
@@ -205,39 +206,101 @@
       <div class="slide">
         <p>10. Finish the sentence: “You’re my brother, but sometimes I feel like ___.”</p>
         <input type="text" id="answer10" placeholder="Type your answer..." />
-        <button onclick="showAnswer(18, '[You decide the ending]')">Finish</button>
+        <button onclick="nextSlide()">Finish</button>
       </div>
 
       <div class="slide">
         <p>Correct Answer: [You decide the ending]</p>
         <div class="footer">
-          No matter your score — you're stuck with me forever. Happy Raksha Bandhan!
+          No matter your score — you're stuck with me forever. Happy Raksha Bandhan! ❤️
         </div>
       </div>
     </div>
   </div>
 
   <script>
+    const slides = document.querySelectorAll('.slide');
     let currentSlide = 0;
 
-    function showAnswer(index, correct) {
-      const slides = document.querySelectorAll('.slide');
-      slides[currentSlide].classList.remove('active');
-      slides[currentSlide + 1].classList.add('active');
-      currentSlide += 1;
+    const confettiCanvas = document.getElementById('confetti-canvas');
+    const ctx = confettiCanvas.getContext('2d');
+
+    function resizeCanvas() {
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class ConfettiParticle {
+      constructor() {
+        this.x = Math.random() * confettiCanvas.width;
+        this.y = Math.random() * confettiCanvas.height - confettiCanvas.height;
+        this.size = Math.random() * 8 + 4;
+        this.speed = Math.random() * 3 + 2;
+        this.angle = Math.random() * 360;
+        this.color = `hsl(${Math.floor(Math.random() * 360)}, 70%, 60%)`;
+        this.tilt = Math.random() * 10 - 10;
+        this.tiltAngleIncrement = (Math.random() * 0.07) + 0.05;
+        this.tiltAngle = 0;
+      }
+      update() {
+        this.y += this.speed;
+        this.tiltAngle += this.tiltAngleIncrement;
+        this.tilt = Math.sin(this.tiltAngle) * 15;
+        if (this.y > confettiCanvas.height) {
+          this.y = -this.size;
+          this.x = Math.random() * confettiCanvas.width;
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.lineWidth = this.size;
+        ctx.strokeStyle = this.color;
+        ctx.moveTo(this.x + this.tilt + this.size / 2, this.y);
+        ctx.lineTo(this.x + this.tilt, this.y + this.tilt + this.size / 2);
+        ctx.stroke();
+      }
+    }
+
+    const confettiCount = 150;
+    const confettiParticles = [];
+    for (let i = 0; i < confettiCount; i++) {
+      confettiParticles.push(new ConfettiParticle());
+    }
+
+    let animationFrameId;
+    const confettiDuration = 2000; // ms
+
+    function runConfetti() {
+      confettiCanvas.style.display = 'block';
+      const start = performance.now();
+
+      function animate(time) {
+        ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+        confettiParticles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+
+        if (time - start < confettiDuration) {
+          animationFrameId = requestAnimationFrame(animate);
+        } else {
+          ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+          confettiCanvas.style.display = 'none';
+        }
+      }
+      animationFrameId = requestAnimationFrame(animate);
     }
 
     function nextSlide() {
-      const slides = document.querySelectorAll('.slide');
-      slides[currentSlide].classList.remove('active');
-      slides[currentSlide + 1].classList.add('active');
-      currentSlide += 1;
+      if (currentSlide < slides.length - 1) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide++;
+        slides[currentSlide].classList.add('active');
+        runConfetti();
+      }
     }
-
-    // Simple confetti effect on page load
-    function createConfettiPiece() {
-      const confetti = document.createElement('div');
-      confetti.style.position = 'absolute';
-      confetti.style.width = confetti.style.height = Math.random() * 8 + 4 + 'px';
-      confetti.style.backgroundColor = `hsl(${Math.random() * 50 + 20}, 100%, 60%)`;
-      confetti.style.top = Math.random()
+  </script>
+</body>
+</html>
