@@ -4,30 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How Well Do You Know Your Sister?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Baloo+2&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(#fff8e1, #ffe0b2);
       margin: 0;
       padding: 0;
-      text-align: center;
+      font-family: 'Baloo 2', cursive;
+      background: url('https://cdn.pixabay.com/photo/2020/08/01/17/32/rakhi-5454329_1280.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
     }
-    .container {
-      max-width: 700px;
-      margin: 2rem auto;
-      background: #fff3e0;
+    .overlay {
+      background: rgba(255, 248, 225, 0.9);
       padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      max-width: 750px;
+      margin: 3rem auto;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     }
     h1 {
-      color: #bf360c;
+      color: #d84315;
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
     }
     img {
       width: 100%;
       max-height: 250px;
-      object-fit: cover;
-      border-radius: 10px;
+      border-radius: 12px;
       margin-bottom: 1.5rem;
     }
     .slide {
@@ -35,167 +38,197 @@
     }
     .slide.active {
       display: block;
-      animation: fadeIn 0.5s ease-in-out;
+      animation: fadeIn 0.6s ease-in-out;
     }
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    button {
-      background-color: #ff6f00;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
+    input[type="text"] {
+      padding: 0.6rem;
+      width: 80%;
       font-size: 1rem;
+      border: 2px solid #ffd54f;
       border-radius: 8px;
-      cursor: pointer;
       margin-top: 1rem;
     }
-    button:hover {
-      background-color: #e65100;
+    .rakhi-btn {
+      background: url('https://png.pngtree.com/png-vector/20210801/ourmid/pngtree-indian-rakhi-with-desi-style-vector-png-image_3792465.jpg') no-repeat center;
+      background-size: cover;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      font-size: 1.1rem;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .rakhi-btn:hover {
+      transform: scale(1.1);
     }
     .footer {
       margin-top: 2rem;
       font-style: italic;
-      color: #6d4c41;
+      color: #5d4037;
+    }
+    .final-rakhi-choice {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .final-rakhi-choice img {
+      width: 100px;
+      cursor: pointer;
+      border: 3px solid transparent;
+      border-radius: 50%;
+      transition: 0.3s ease;
+    }
+    .final-rakhi-choice img:hover {
+      border-color: #ff6f00;
+    }
+    #hand-tie {
+      display: none;
+      margin-top: 2rem;
+      animation: fadeIn 2s ease;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="overlay">
     <h1>How Well Do You Know Your Sister?</h1>
     <img src="https://images.unsplash.com/photo-1597157631266-60d8db00f8f5" alt="Rakhi celebration" />
-
     <div id="slides">
       <div class="slide active">
         <p>1. What is my favorite dessert?</p>
         <input type="text" id="answer1" placeholder="Type your answer..." />
-        <button onclick="showAnswer(0, 'Kheer / Choorma')">Next</button>
+        <button class="rakhi-btn" onclick="showAnswer(0)"></button>
       </div>
-
       <div class="slide">
         <p>Correct Answer: Kheer / Choorma</p>
-        <button onclick="nextSlide()">Next</button>
+        <button class="rakhi-btn" onclick="nextSlide()"></button>
       </div>
-
       <div class="slide">
         <p>2. Which subject did I hate in school?</p>
         <input type="text" id="answer2" placeholder="Type your answer..." />
-        <button onclick="showAnswer(2, 'Social Science')">Next</button>
+        <button class="rakhi-btn" onclick="showAnswer(2)"></button>
       </div>
-
       <div class="slide">
         <p>Correct Answer: Social Science</p>
-        <button onclick="nextSlide()">Next</button>
+        <button class="rakhi-btn" onclick="nextSlide()"></button>
       </div>
-
       <div class="slide">
         <p>3. What’s the one movie I can watch over and over?</p>
         <input type="text" id="answer3" placeholder="Type your answer..." />
-        <button onclick="showAnswer(4, 'Hera Pheri / Guru / Vivah / K3G / Jannat')">Next</button>
+        <button class="rakhi-btn" onclick="showAnswer(4)"></button>
       </div>
-
       <div class="slide">
         <p>Correct Answer: Hera Pheri / Guru / Vivah / K3G / Jannat</p>
-        <button onclick="nextSlide()">Next</button>
+        <button class="rakhi-btn" onclick="nextSlide()"></button>
       </div>
-
       <div class="slide">
         <p>4. What did I always steal from your room as kids?</p>
         <input type="text" id="answer4" placeholder="Type your answer..." />
-        <button onclick="showAnswer(6, 'You know better ;)')">Next</button>
+        <button class="rakhi-btn" onclick="showAnswer(6)"></button>
       </div>
-
       <div class="slide">
         <p>Correct Answer: You know better ;)</p>
-        <button onclick="nextSlide()">Next</button>
+        <button class="rakhi-btn" onclick="nextSlide()"></button>
       </div>
-
       <div class="slide">
         <p>5. If I could teleport anywhere right now, where would I go?</p>
         <input type="text" id="answer5" placeholder="Type your answer..." />
-        <button onclick="showAnswer(8, 'Home')">Next</button>
+        <button class="rakhi-btn" onclick="showAnswer(8)"></button>
       </div>
-
       <div class="slide">
         <p>Correct Answer: Home</p>
-        <button onclick="nextSlide()">Next</button>
+        <button class="rakhi-btn" onclick="nextSlide()"></button>
       </div>
-
       <div class="slide">
         <p>6. What’s my secret talent?</p>
         <input type="text" id="answer6" placeholder="Type your answer..." />
-        <button onclick="showAnswer(10, 'Bata dungi to secret kaise rahega!')">Next</button>
+        <button class="rakhi-btn" onclick="showAnswer(10)"></button>
       </div>
-
       <div class="slide">
         <p>Correct Answer: Bata dungi to secret kaise rahega!</p>
-        <button onclick="nextSlide()">Next</button>
+        <button class="rakhi-btn" onclick="nextSlide()"></button>
       </div>
-
       <div class="slide">
         <p>7. Who was my childhood celebrity crush?</p>
         <input type="text" id="answer7" placeholder="Type your answer..." />
-        <button onclick="showAnswer(12, 'Govinda')">Next</button>
+        <button class="rakhi-btn" onclick="showAnswer(12)"></button>
       </div>
-
       <div class="slide">
         <p>Correct Answer: Govinda</p>
-        <button onclick="nextSlide()">Next</button>
+        <button class="rakhi-btn" onclick="nextSlide()"></button>
       </div>
-
       <div class="slide">
         <p>8. What’s one thing you do that always annoys me?</p>
         <input type="text" id="answer8" placeholder="Type your answer..." />
-        <button onclick="showAnswer(14, 'I don\'t know. You don\'t know.')">Next</button>
+        <button class="rakhi-btn" onclick="showAnswer(14)"></button>
       </div>
-
       <div class="slide">
         <p>Correct Answer: I don't know. You don't know.</p>
-        <button onclick="nextSlide()">Next</button>
+        <button class="rakhi-btn" onclick="nextSlide()"></button>
       </div>
-
       <div class="slide">
         <p>9. What’s my go-to comfort food when I’m upset?</p>
         <input type="text" id="answer9" placeholder="Type your answer..." />
-        <button onclick="showAnswer(16, 'Poori ke sath poori')">Next</button>
+        <button class="rakhi-btn" onclick="showAnswer(16)"></button>
       </div>
-
       <div class="slide">
         <p>Correct Answer: Poori ke sath poori</p>
-        <button onclick="nextSlide()">Next</button>
+        <button class="rakhi-btn" onclick="nextSlide()"></button>
       </div>
-
       <div class="slide">
         <p>10. Finish the sentence: “You’re my brother, but sometimes I feel like ___.”</p>
         <input type="text" id="answer10" placeholder="Type your answer..." />
-        <button onclick="showAnswer(18, '[You decide the ending]')">Finish</button>
+        <button class="rakhi-btn" onclick="showAnswer(18)"></button>
       </div>
-
       <div class="slide">
         <p>Correct Answer: [You decide the ending]</p>
         <div class="footer">
           No matter your score — you're stuck with me forever. Happy Raksha Bandhan!
         </div>
+        <button class="rakhi-btn" onclick="nextSlide()"></button>
+      </div>
+      <div class="slide">
+        <p>Choose your Rakhi to tie on my wrist 🤗</p>
+        <div class="final-rakhi-choice">
+          <img src="https://i.ibb.co/TrjFmqh/rakhi1.png" onclick="tieRakhi(this.src)" alt="rakhi1" />
+          <img src="https://i.ibb.co/S7HxGJL/rakhi2.png" onclick="tieRakhi(this.src)" alt="rakhi2" />
+          <img src="https://i.ibb.co/xXMq2zp/rakhi3.png" onclick="tieRakhi(this.src)" alt="rakhi3" />
+        </div>
+        <div id="hand-tie">
+          <p>🎉 Aww! You tied this one on me 🥹❤️</p>
+          <img id="chosen-rakhi" src="" style="width:150px; margin-top:1rem; border-radius:50%; border:4px solid #ffab40;" />
+          <div class="footer">Happy Raksha Bandhan! I love you forever. 💛</div>
+        </div>
       </div>
     </div>
   </div>
-
   <script>
     let currentSlide = 0;
+    const slideElements = document.querySelectorAll(".slide");
+    slideElements[currentSlide].classList.add("active");
 
-    function showAnswer(index, correct) {
-      const slides = document.querySelectorAll('.slide');
-      slides[currentSlide].classList.remove('active');
-      slides[currentSlide + 1].classList.add('active');
-      currentSlide += 1;
+    function showAnswer(index) {
+      slideElements[currentSlide].classList.remove("active");
+      slideElements[++currentSlide].classList.add("active");
     }
 
     function nextSlide() {
-      const slides = document.querySelectorAll('.slide');
-      slides[currentSlide].classList.remove('active');
-      slides[currentSlide + 1].classList.add('active');
-      currentSlide += 1;
+      slideElements[currentSlide].classList.remove("active");
+      slideElements[++currentSlide].classList.add("active");
+    }
+
+    function tieRakhi(src) {
+      document.getElementById("hand-tie").style.display = "block";
+      document.getElementById("chosen-rakhi").src = src;
     }
   </script>
 </body>
