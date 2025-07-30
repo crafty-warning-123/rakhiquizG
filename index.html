@@ -30,13 +30,16 @@
       border-radius: 10px;
       margin-bottom: 1.5rem;
     }
-    .question {
-      text-align: left;
-      margin-bottom: 1.5rem;
+    .slide {
+      display: none;
     }
-    label {
+    .slide.active {
       display: block;
-      margin: 0.25rem 0;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     button {
       background-color: #ff6f00;
@@ -46,16 +49,10 @@
       font-size: 1rem;
       border-radius: 8px;
       cursor: pointer;
+      margin-top: 1rem;
     }
     button:hover {
       background-color: #e65100;
-    }
-    .answers {
-      margin-top: 2rem;
-      background: #fff8e1;
-      padding: 1rem;
-      border-radius: 10px;
-      display: none;
     }
     .footer {
       margin-top: 2rem;
@@ -69,85 +66,136 @@
     <h1>How Well Do You Know Your Sister?</h1>
     <img src="https://images.unsplash.com/photo-1597157631266-60d8db00f8f5" alt="Rakhi celebration" />
 
-    <form id="quizForm">
-      <div class="question">
+    <div id="slides">
+      <div class="slide active">
         <p>1. What is my favorite dessert?</p>
-        <label><input type="radio" name="q1" value="Kheer / Choorma" /> Kheer / Choorma</label>
-        <label><input type="radio" name="q1" value="Chocolate cake" /> Chocolate cake</label>
-        <label><input type="radio" name="q1" value="Ice cream" /> Ice cream</label>
+        <input type="text" id="answer1" placeholder="Type your answer..." />
+        <button onclick="showAnswer(0, 'Kheer / Choorma')">Next</button>
       </div>
 
-      <div class="question">
+      <div class="slide">
+        <p>Correct Answer: Kheer / Choorma</p>
+        <button onclick="nextSlide()">Next</button>
+      </div>
+
+      <div class="slide">
         <p>2. Which subject did I hate in school?</p>
-        <input type="text" name="q2" />
+        <input type="text" id="answer2" placeholder="Type your answer..." />
+        <button onclick="showAnswer(2, 'Social Science')">Next</button>
       </div>
 
-      <div class="question">
+      <div class="slide">
+        <p>Correct Answer: Social Science</p>
+        <button onclick="nextSlide()">Next</button>
+      </div>
+
+      <div class="slide">
         <p>3. What’s the one movie I can watch over and over?</p>
-        <input type="text" name="q3" />
+        <input type="text" id="answer3" placeholder="Type your answer..." />
+        <button onclick="showAnswer(4, 'Hera Pheri / Guru / Vivah / K3G / Jannat')">Next</button>
       </div>
 
-      <div class="question">
+      <div class="slide">
+        <p>Correct Answer: Hera Pheri / Guru / Vivah / K3G / Jannat</p>
+        <button onclick="nextSlide()">Next</button>
+      </div>
+
+      <div class="slide">
         <p>4. What did I always steal from your room as kids?</p>
-        <input type="text" name="q4" />
+        <input type="text" id="answer4" placeholder="Type your answer..." />
+        <button onclick="showAnswer(6, 'You know better ;)')">Next</button>
       </div>
 
-      <div class="question">
+      <div class="slide">
+        <p>Correct Answer: You know better ;)</p>
+        <button onclick="nextSlide()">Next</button>
+      </div>
+
+      <div class="slide">
         <p>5. If I could teleport anywhere right now, where would I go?</p>
-        <input type="text" name="q5" />
+        <input type="text" id="answer5" placeholder="Type your answer..." />
+        <button onclick="showAnswer(8, 'Home')">Next</button>
       </div>
 
-      <div class="question">
+      <div class="slide">
+        <p>Correct Answer: Home</p>
+        <button onclick="nextSlide()">Next</button>
+      </div>
+
+      <div class="slide">
         <p>6. What’s my secret talent?</p>
-        <input type="text" name="q6" />
+        <input type="text" id="answer6" placeholder="Type your answer..." />
+        <button onclick="showAnswer(10, 'Bata dungi to secret kaise rahega!')">Next</button>
       </div>
 
-      <div class="question">
+      <div class="slide">
+        <p>Correct Answer: Bata dungi to secret kaise rahega!</p>
+        <button onclick="nextSlide()">Next</button>
+      </div>
+
+      <div class="slide">
         <p>7. Who was my childhood celebrity crush?</p>
-        <input type="text" name="q7" />
+        <input type="text" id="answer7" placeholder="Type your answer..." />
+        <button onclick="showAnswer(12, 'Govinda')">Next</button>
       </div>
 
-      <div class="question">
+      <div class="slide">
+        <p>Correct Answer: Govinda</p>
+        <button onclick="nextSlide()">Next</button>
+      </div>
+
+      <div class="slide">
         <p>8. What’s one thing you do that always annoys me?</p>
-        <input type="text" name="q8" />
+        <input type="text" id="answer8" placeholder="Type your answer..." />
+        <button onclick="showAnswer(14, 'I don\'t know. You don\'t know.')">Next</button>
       </div>
 
-      <div class="question">
+      <div class="slide">
+        <p>Correct Answer: I don't know. You don't know.</p>
+        <button onclick="nextSlide()">Next</button>
+      </div>
+
+      <div class="slide">
         <p>9. What’s my go-to comfort food when I’m upset?</p>
-        <input type="text" name="q9" />
+        <input type="text" id="answer9" placeholder="Type your answer..." />
+        <button onclick="showAnswer(16, 'Poori ke sath poori')">Next</button>
       </div>
 
-      <div class="question">
+      <div class="slide">
+        <p>Correct Answer: Poori ke sath poori</p>
+        <button onclick="nextSlide()">Next</button>
+      </div>
+
+      <div class="slide">
         <p>10. Finish the sentence: “You’re my brother, but sometimes I feel like ___.”</p>
-        <input type="text" name="q10" />
+        <input type="text" id="answer10" placeholder="Type your answer..." />
+        <button onclick="showAnswer(18, '[You decide the ending]')">Finish</button>
       </div>
 
-      <button type="button" onclick="showAnswers()">Submit</button>
-    </form>
-
-    <div class="answers" id="answers">
-      <h2>Correct Answers</h2>
-      <ul>
-        <li>1. Kheer / Choorma</li>
-        <li>2. Social Science</li>
-        <li>3. Hera Pheri / Guru / Vivah / K3G / Jannat</li>
-        <li>4. You know better ;)</li>
-        <li>5. Home</li>
-        <li>6. Bata dungi to secret kaise rahega!</li>
-        <li>7. Govinda</li>
-        <li>8. I don't know. You don't know.</li>
-        <li>9. Poori ke sath poori</li>
-        <li>10. [You decide the ending]</li>
-      </ul>
-      <div class="footer">
-        No matter your score — you're stuck with me forever. Happy Raksha Bandhan!
+      <div class="slide">
+        <p>Correct Answer: [You decide the ending]</p>
+        <div class="footer">
+          No matter your score — you're stuck with me forever. Happy Raksha Bandhan!
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    function showAnswers() {
-      document.getElementById('answers').style.display = 'block';
+    let currentSlide = 0;
+
+    function showAnswer(index, correct) {
+      const slides = document.querySelectorAll('.slide');
+      slides[currentSlide].classList.remove('active');
+      slides[currentSlide + 1].classList.add('active');
+      currentSlide += 1;
+    }
+
+    function nextSlide() {
+      const slides = document.querySelectorAll('.slide');
+      slides[currentSlide].classList.remove('active');
+      slides[currentSlide + 1].classList.add('active');
+      currentSlide += 1;
     }
   </script>
 </body>
