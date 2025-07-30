@@ -106,7 +106,7 @@
       <div class="slide active">
         <p>1. What is my favorite dessert?</p>
         <input type="text" id="answer1" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="showAnswer(0)"></button>
+        <button class="rakhi-btn" onclick="showAnswer()"></button>
       </div>
       <div class="slide">
         <p>Correct Answer: Kheer / Choorma</p>
@@ -115,7 +115,7 @@
       <div class="slide">
         <p>2. Which subject did I hate in school?</p>
         <input type="text" id="answer2" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="showAnswer(2)"></button>
+        <button class="rakhi-btn" onclick="showAnswer()"></button>
       </div>
       <div class="slide">
         <p>Correct Answer: Social Science</p>
@@ -124,7 +124,7 @@
       <div class="slide">
         <p>3. What’s the one movie I can watch over and over?</p>
         <input type="text" id="answer3" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="showAnswer(4)"></button>
+        <button class="rakhi-btn" onclick="showAnswer()"></button>
       </div>
       <div class="slide">
         <p>Correct Answer: Hera Pheri / Guru / Vivah / K3G / Jannat</p>
@@ -133,7 +133,7 @@
       <div class="slide">
         <p>4. What did I always steal from your room as kids?</p>
         <input type="text" id="answer4" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="showAnswer(6)"></button>
+        <button class="rakhi-btn" onclick="showAnswer()"></button>
       </div>
       <div class="slide">
         <p>Correct Answer: You know better ;)</p>
@@ -142,7 +142,7 @@
       <div class="slide">
         <p>5. If I could teleport anywhere right now, where would I go?</p>
         <input type="text" id="answer5" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="showAnswer(8)"></button>
+        <button class="rakhi-btn" onclick="showAnswer()"></button>
       </div>
       <div class="slide">
         <p>Correct Answer: Home</p>
@@ -151,7 +151,7 @@
       <div class="slide">
         <p>6. What’s my secret talent?</p>
         <input type="text" id="answer6" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="showAnswer(10)"></button>
+        <button class="rakhi-btn" onclick="showAnswer()"></button>
       </div>
       <div class="slide">
         <p>Correct Answer: Bata dungi to secret kaise rahega!</p>
@@ -160,7 +160,7 @@
       <div class="slide">
         <p>7. Who was my childhood celebrity crush?</p>
         <input type="text" id="answer7" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="showAnswer(12)"></button>
+        <button class="rakhi-btn" onclick="showAnswer()"></button>
       </div>
       <div class="slide">
         <p>Correct Answer: Govinda</p>
@@ -169,7 +169,7 @@
       <div class="slide">
         <p>8. What’s one thing you do that always annoys me?</p>
         <input type="text" id="answer8" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="showAnswer(14)"></button>
+        <button class="rakhi-btn" onclick="showAnswer()"></button>
       </div>
       <div class="slide">
         <p>Correct Answer: I don't know. You don't know.</p>
@@ -178,7 +178,7 @@
       <div class="slide">
         <p>9. What’s my go-to comfort food when I’m upset?</p>
         <input type="text" id="answer9" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="showAnswer(16)"></button>
+        <button class="rakhi-btn" onclick="showAnswer()"></button>
       </div>
       <div class="slide">
         <p>Correct Answer: Poori ke sath poori</p>
@@ -187,7 +187,7 @@
       <div class="slide">
         <p>10. Finish the sentence: “You’re my brother, but sometimes I feel like ___.”</p>
         <input type="text" id="answer10" placeholder="Type your answer..." />
-        <button class="rakhi-btn" onclick="showAnswer(18)"></button>
+        <button class="rakhi-btn" onclick="showAnswer()"></button>
       </div>
       <div class="slide">
         <p>Correct Answer: [You decide the ending]</p>
@@ -216,10 +216,11 @@
     const slideElements = document.querySelectorAll(".slide");
     slideElements[currentSlide].classList.add("active");
 
-    function showAnswer(index) {
-      slideElements[currentSlide].classList.remove("active");
-      slideElements[++currentSlide].classList.add("active");
-    }
+    function showAnswer() {
+  slideElements[currentSlide].classList.remove("active");
+  currentSlide += 1;
+  slideElements[currentSlide].classList.add("active");
+}
 
     function nextSlide() {
       slideElements[currentSlide].classList.remove("active");
