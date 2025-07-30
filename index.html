@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Well Do You Know Your Sister?</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(#fff8e1, #ffe0b2);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: #fff3e0;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #bf360c;
+    }
+    img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+    .question {
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin: 0.25rem 0;
+    }
+    button {
+      background-color: #ff6f00;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e65100;
+    }
+    .answers {
+      margin-top: 2rem;
+      background: #fff8e1;
+      padding: 1rem;
+      border-radius: 10px;
+      display: none;
+    }
+    .footer {
+      margin-top: 2rem;
+      font-style: italic;
+      color: #6d4c41;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>How Well Do You Know Your Sister?</h1>
+    <img src="https://images.unsplash.com/photo-1597157631266-60d8db00f8f5" alt="Rakhi celebration" />
+
+    <form id="quizForm">
+      <div class="question">
+        <p>1. What is my favorite dessert?</p>
+        <label><input type="radio" name="q1" value="Kheer / Choorma" /> Kheer / Choorma</label>
+        <label><input type="radio" name="q1" value="Chocolate cake" /> Chocolate cake</label>
+        <label><input type="radio" name="q1" value="Ice cream" /> Ice cream</label>
+      </div>
+
+      <div class="question">
+        <p>2. Which subject did I hate in school?</p>
+        <input type="text" name="q2" />
+      </div>
+
+      <div class="question">
+        <p>3. What’s the one movie I can watch over and over?</p>
+        <input type="text" name="q3" />
+      </div>
+
+      <div class="question">
+        <p>4. What did I always steal from your room as kids?</p>
+        <input type="text" name="q4" />
+      </div>
+
+      <div class="question">
+        <p>5. If I could teleport anywhere right now, where would I go?</p>
+        <input type="text" name="q5" />
+      </div>
+
+      <div class="question">
+        <p>6. What’s my secret talent?</p>
+        <input type="text" name="q6" />
+      </div>
+
+      <div class="question">
+        <p>7. Who was my childhood celebrity crush?</p>
+        <input type="text" name="q7" />
+      </div>
+
+      <div class="question">
+        <p>8. What’s one thing you do that always annoys me?</p>
+        <input type="text" name="q8" />
+      </div>
+
+      <div class="question">
+        <p>9. What’s my go-to comfort food when I’m upset?</p>
+        <input type="text" name="q9" />
+      </div>
+
+      <div class="question">
+        <p>10. Finish the sentence: “You’re my brother, but sometimes I feel like ___.”</p>
+        <input type="text" name="q10" />
+      </div>
+
+      <button type="button" onclick="showAnswers()">Submit</button>
+    </form>
+
+    <div class="answers" id="answers">
+      <h2>Correct Answers</h2>
+      <ul>
+        <li>1. Kheer / Choorma</li>
+        <li>2. Social Science</li>
+        <li>3. Hera Pheri / Guru / Vivah / K3G / Jannat</li>
+        <li>4. You know better ;)</li>
+        <li>5. Home</li>
+        <li>6. Bata dungi to secret kaise rahega!</li>
+        <li>7. Govinda</li>
+        <li>8. I don't know. You don't know.</li>
+        <li>9. Poori ke sath poori</li>
+        <li>10. [You decide the ending]</li>
+      </ul>
+      <div class="footer">
+        No matter your score — you're stuck with me forever. Happy Raksha Bandhan!
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showAnswers() {
+      document.getElementById('answers').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
